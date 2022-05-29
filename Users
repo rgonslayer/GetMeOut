@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS public."Users"
+(
+    "ID" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Password" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Email" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Users_pkey" PRIMARY KEY ("ID"),
+    CONSTRAINT "Users_Email_key" UNIQUE ("Email")
+)
+
+TABLESPACE pg_default;
+
