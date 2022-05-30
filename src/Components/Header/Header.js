@@ -62,30 +62,5 @@ function OverviewBox(props) {
   );
 }
 
-function CatFactBox() {
-  const [catFact, setCatFact] = useState("Loading cat fact...");
-
-  // useEffect first argument: the effect that you want to run
-  // useEffect second argument: the dependency array, i.e. the
-  // values it is watching for any changes
-
-  // In this case, the dependency array is empty (i.e. it is watching nothing)
-  // so this effect will only run when the page has mounted (finished loading)
-  useEffect(() => {
-    fetch("https://catfact.ninja/fact")
-      .then((response) => response.json())
-      .then((data) => setCatFact(data.fact))
-      .catch((error) =>
-        setCatFact(`Unable to retrieve cat fact. Error: ${error}`)
-      );
-  }, []);
-
-  return (
-    <Box>
-      <h2>Cat Fact of the Day</h2>
-      <p>{catFact}</p>
-    </Box>
-  );
-}
 
 export default Header;
