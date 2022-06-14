@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Avatar from './Avatar'
+import Link from 'next/dist/client/link'
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -112,10 +113,16 @@ export default function Account({ session }) {
       </div>
 
       <div>
+        <button className="button block" onClick={() => (window.location.href = "/")}> 
+          Home
+        </button>
+      </div>
+
+      <div>
         <button className="button block" onClick={() => supabase.auth.signOut()}>
           Sign Out
         </button>
-      </div>
+      </div> 
     </div>
   )
 }
