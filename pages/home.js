@@ -5,6 +5,8 @@ import Account from '../components/Account'
 import Navbar from '../components/navbar'
 
 
+
+function Home() {
   /*const [session, setSession] = useState(null)
 
   useEffect(() => {
@@ -23,7 +25,12 @@ import Navbar from '../components/navbar'
     
   )
 }*/
-
-export default function Index() {
-    return <Auth />
+  return (
+    <div>
+      <Navbar />
+      <h1>Homepage</h1>
+    </div>
+  )
 }
+
+export default Home;
