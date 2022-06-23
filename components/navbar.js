@@ -1,16 +1,23 @@
 import Link from "next/link"
+import { supabase } from '../utils/supabaseClient'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
+    async function signOut() {
+        await supabase.auth.signOut()
+        router.push('/home')
+      }
+      const router = useRouter()
     return (
         <nav>
             <div className="logo">
                 <h1>Get Me Out!</h1>
             </div>
-            <Link href="/"><a>Home</a></Link>
-            <Link href="/login"><a>Login</a></Link>
+            <Link href="/home"><a>Home</a></Link>
             <Link href="/profile"><a>Profile</a></Link>
             <Link href="/packingChecklist"><a>CheckList</a></Link>
             <Link href="/budgetTracker"><a>Budget Tracker</a></Link>
+            <button onClick={signOut}>Sign Out</button>
         </nav>
     )
 }
