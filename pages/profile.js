@@ -4,6 +4,7 @@ import Avatar from '../components/Avatar'
 
 export default function profile() {
   const [loading, setLoading] = useState(true)
+  const [email, setEmail] = useState(null)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
@@ -89,7 +90,7 @@ export default function profile() {
         />
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" value={email} disabled />
       </div>
       <div>
         <label htmlFor="username">Name</label>
