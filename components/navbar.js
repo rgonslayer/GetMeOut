@@ -15,8 +15,9 @@ const Navbar = () => {
             </div>
             <Link href="/home"><a>Home</a></Link>
             <Link href="/profile"><a>Profile</a></Link>
-            <Link href="/packingChecklist"><a>CheckList</a></Link>
+            <Link href="/packinglist"><a>Packing CheckList</a></Link>
             <Link href="/budgetTracker"><a>Budget Tracker</a></Link>
+            <Link href="/travellist"><a>Travel Checklist</a></Link>
             <button onClick={signOut}>Sign Out</button>
         </nav>
     )

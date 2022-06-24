@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import { Auth, Typography, Button } from '@supabase/ui'
 
 export default function Auth() {
   const [loading, setLoading] = useState(false)
@@ -29,19 +28,6 @@ export default function Auth() {
       provider: 'google',
     })
   }
-  const Container = (props) => {
-      const { user } = Auth.useUser()
-      if (user)
-        return (
-          <>
-            <Typography.Text>Signed in: {user.email}</Typography.Text>
-            <Button block onClick={() => props.supabaseClient.auth.signOut()}>
-              Sign out
-            </Button>
-          </>
-        )
-      return props.children
-    }
 
   return (
     <div className="row flex flex-center">
@@ -92,11 +78,6 @@ export default function Auth() {
           >
             <span>{loading ? 'Loading' : 'Google Login'}</span>
           </button>
-            <Auth.UserContextProvider supabaseClient={supabase}>
-2             <Container supabaseClient={supabase}>
-                <Auth supabaseClient={supabase} providers={['google', 'facebook', 'github']} />
-              </Container>
-            </Auth.UserContextProvider>
         </div>
       </div>
     </div>

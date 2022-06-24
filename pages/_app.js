@@ -62,11 +62,14 @@ function MyApp({ Component, pageProps }) {
             <a style={linkStyle}>Profile</a>
           </Link>
 
-          <Link href="/checklist">
+          <Link href="/packinglist">
             <a style={linkStyle}>Checklist</a>
           </Link>
           <Link href="/budgetTracker">
             <a style={linkStyle}>Budget Tracker</a>
+          </Link>
+          <Link href="/travellist"> 
+            <a style={linkStyle}>Travel Checklist</a>
           </Link>
           {
             authenticatedState === 'authenticated' && (

@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Auth from '../components/Auth'
-import Account from '../components/Account'
-import Navbar from '../components/navbar'
 import { useRouter } from 'next/router'
 
 
@@ -27,5 +25,3 @@ export default function Index() {
     
   )
 }
-
-//<Account key={session.user.id} session={session} />
