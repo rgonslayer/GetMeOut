@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
+import { Auth, Typography, Button } from '@supabase/ui'
 
 export default function Auth() {
   const [loading, setLoading] = useState(false)
@@ -17,6 +18,30 @@ export default function Auth() {
       setLoading(false)
     }
   }
+
+  async function signInWithFacebook() {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'facebook',
+    })
+  }
+  async function signInWithGoogle() {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'google',
+    })
+  }
+  const Container = (props) => {
+      const { user } = Auth.useUser()
+      if (user)
+        return (
+          <>
+            <Typography.Text>Signed in: {user.email}</Typography.Text>
+            <Button block onClick={() => props.supabaseClient.auth.signOut()}>
+              Sign out
+            </Button>
+          </>
+        )
+      return props.children
+    }
 
   return (
     <div className="row flex flex-center">
@@ -43,6 +68,35 @@ export default function Auth() {
           >
             <span>{loading ? 'Loading' : 'Send magic link'}</span>
           </button>
+        </div>
+        <div>
+        <button
+            onClick={(e) => {
+              e.preventDefault()
+              signInWithFacebook()
+            }}
+            className="button block"
+            disabled={loading}
+          >
+            <span>{loading ? 'Loading' : 'Facebook Login'}</span>
+          </button>
+        </div>
+        <div>
+        <button
+            onClick={(e) => {
+              e.preventDefault()
+              signInWithGoogle()
+            }}
+            className="button block"
+            disabled={loading}
+          >
+            <span>{loading ? 'Loading' : 'Google Login'}</span>
+          </button>
+            <Auth.UserContextProvider supabaseClient={supabase}>
+2             <Container supabaseClient={supabase}>
+                <Auth supabaseClient={supabase} providers={['google', 'facebook', 'github']} />
+              </Container>
+            </Auth.UserContextProvider>
         </div>
       </div>
     </div>

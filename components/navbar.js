@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 const Navbar = () => {
     async function signOut() {
-        await supabase.auth.signOut()
+        const { error } = await supabase.auth.signOut()
         router.push('/home')
       }
       const router = useRouter()
