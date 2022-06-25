@@ -4,7 +4,6 @@ import Auth from '../components/Auth'
 import { useRouter } from 'next/router'
 
 
-
 export default function Index() {
   const [session, setSession] = useState(null)
   const router = useRouter()
@@ -17,10 +16,15 @@ export default function Index() {
     })
   }, [])
 
+  function reroute() {
+      router.push('/home')
+  }
+  
+
   return (
 
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Auth /> : router.push('/home')}
+      {!session ? <Auth /> : reroute()}
     </div>
     
   )

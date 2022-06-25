@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Auth } from '@supabase/ui'
 
+
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
@@ -54,6 +55,7 @@ function MyApp({ Component, pageProps }) {
 
     return (
       <div>
+        <Auth.UserContextProvider supabaseClient={supabase}>
         <nav style={navStyle}>
           <Link href="/home">
             <a style={linkStyle}>Home</a>
@@ -63,13 +65,13 @@ function MyApp({ Component, pageProps }) {
           </Link>
 
           <Link href="/packinglist">
-            <a style={linkStyle}>Checklist</a>
+            <a style={linkStyle}>Packing List</a>
           </Link>
           <Link href="/budgetTracker">
             <a style={linkStyle}>Budget Tracker</a>
           </Link>
-          <Link href="/travellist"> 
-            <a style={linkStyle}>Travel Checklist</a>
+          <Link href="/itinerary"> 
+            <a style={linkStyle}>Itinerary</a>
           </Link>
           {
             authenticatedState === 'authenticated' && (
@@ -82,8 +84,8 @@ function MyApp({ Component, pageProps }) {
             )
           }
         </nav>
-        <Auth.UserContextProvider supabaseClient={supabase}>
-        <Component {...pageProps} />
+
+          <Component {...pageProps} />
         </Auth.UserContextProvider>
       </div>
     )
