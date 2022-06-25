@@ -2,6 +2,16 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Avatar from '../components/Avatar'
 
+export async function getServerSideProps({ req }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req)
+
+  if (!user) {
+    return { props: {}, redirect: { destination: '/' } }
+  }
+
+  return { props: { user } }
+}
+
 export default function profile() {
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState(null)
