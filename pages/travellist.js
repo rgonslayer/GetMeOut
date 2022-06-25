@@ -1,18 +1,6 @@
 import { supabase } from '../utils/supabaseClient'
-<<<<<<< Updated upstream
-
-export default function Checklist({ user }) {
-  console.log({ user })
-  return (
-    <div style={{ maxWidth: '420px', margin: '96px auto' }}>
-      <h2>Travel Checklist here</h2>
-    </div>
-  )
-}
-=======
 import { Auth } from '@supabase/ui'
 import TodoList from '../components/travelListComp'
->>>>>>> Stashed changes
 
 export async function getServerSideProps({ req }) {
   const { user } = await supabase.auth.api.getUserByCookie(req)
@@ -22,8 +10,6 @@ export async function getServerSideProps({ req }) {
   }
 
   return { props: { user } }
-<<<<<<< Updated upstream
-=======
 }
 
 
@@ -53,5 +39,4 @@ export default function TravelList() {
       )}
     </div>
   )
->>>>>>> Stashed changes
 }
