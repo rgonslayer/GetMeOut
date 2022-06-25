@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Auth } from '@supabase/ui'
 
 
+
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter()
@@ -56,6 +57,8 @@ function MyApp({ Component, pageProps }) {
     return (
       <div>
         <Auth.UserContextProvider supabaseClient={supabase}>
+        <div className="row flex flex-center">
+        <h1 className="header">GetMeOut!</h1>
         <nav style={navStyle}>
           <Link href="/home">
             <a style={linkStyle}>Home</a>
@@ -87,7 +90,7 @@ function MyApp({ Component, pageProps }) {
             )
           }
         </nav>
-
+        </div>
           <Component {...pageProps} />
         </Auth.UserContextProvider>
       </div>
