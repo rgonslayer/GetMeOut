@@ -67,16 +67,11 @@ function MyApp({ Component, pageProps }) {
           <Link href="/budgetTracker">
             <a style={linkStyle}>Budget Tracker</a>
           </Link>
-<<<<<<< Updated upstream
-          <Link href="/travellist"> 
-            <a style={linkStyle}>Travel Checklist</a>
-=======
           <Link href="/travellist">
             <a style={linkStyle}>Travel CheckList</a>
           </Link>
           <Link href="/itinerary"> 
             <a style={linkStyle}>Itinerary</a>
->>>>>>> Stashed changes
           </Link>
           {
             authenticatedState === 'authenticated' && (
