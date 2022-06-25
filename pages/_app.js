@@ -62,7 +62,7 @@ function MyApp({ Component, pageProps }) {
             <a style={linkStyle}>Profile</a>
           </Link>
           <Link href="/packinglist">
-            <a style={linkStyle}>Checklist</a>
+            <a style={linkStyle}>Packing List</a>
           </Link>
           <Link href="/budgetTracker">
             <a style={linkStyle}>Budget Tracker</a>
