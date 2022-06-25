@@ -25,6 +25,8 @@ module.exports = {
        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
        "react/no-unescaped-entities": "off",
        "@next/next/no-page-custom-font": "off",
-       "react/prop-types": "off"
+       "react/prop-types": "off",
+       "no-unused-vars": "off",
+       "no-undef" : "off"
     }
 }

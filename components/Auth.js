@@ -18,10 +18,21 @@ export default function Auth() {
     }
   }
 
+  async function signInWithFacebook() {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'facebook',
+    })
+  }
+  async function signInWithGoogle() {
+    const { user, session, error } = await supabase.auth.signIn({
+      provider: 'google',
+    })
+  }
+
   return (
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
-        <h1 className="header">Supabase + Next.js</h1>
+        <h1 className="header">GetMeOut!</h1>
         <p className="description">Sign in via magic link with your email below</p>
         <div>
           <input
@@ -42,6 +53,30 @@ export default function Auth() {
             disabled={loading}
           >
             <span>{loading ? 'Loading' : 'Send magic link'}</span>
+          </button>
+        </div>
+        <div>
+        <button
+            onClick={(e) => {
+              e.preventDefault()
+              signInWithFacebook()
+            }}
+            className="button block"
+            disabled={loading}
+          >
+            <span>{loading ? 'Loading' : 'Facebook Login'}</span>
+          </button>
+        </div>
+        <div>
+        <button
+            onClick={(e) => {
+              e.preventDefault()
+              signInWithGoogle()
+            }}
+            className="button block"
+            disabled={loading}
+          >
+            <span>{loading ? 'Loading' : 'Google Login'}</span>
           </button>
         </div>
       </div>

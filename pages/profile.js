@@ -1,12 +1,22 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import Avatar from './Avatar'
+import Avatar from '../components/Avatar'
 
-export default function Account({ session }) {
+export default function profile() {
   const [loading, setLoading] = useState(true)
+  const [email, setEmail] = useState(null)
   const [username, setUsername] = useState(null)
   const [website, setWebsite] = useState(null)
   const [avatar_url, setAvatarUrl] = useState(null)
+  const [session, setSession] = useState(null)
+
+  useEffect(() => {
+    setSession(supabase.auth.session())
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
 
   useEffect(() => {
     getProfile()
@@ -65,20 +75,22 @@ export default function Account({ session }) {
       setLoading(false)
     }
   }
+  
+
 
   return (
     <div className="form-widget">
-        <Avatar
+    <Avatar
       url={avatar_url}
       size={150}
       onUpload={(url) => {
         setAvatarUrl(url)
         updateProfile({ username, website, avatar_url: url })
       }}
-    />
+        />
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" value={email} disabled />
       </div>
       <div>
         <label htmlFor="username">Name</label>
@@ -99,8 +111,6 @@ export default function Account({ session }) {
         />
       </div>
 
-      
-
       <div>
         <button
           className="button block primary"
@@ -112,16 +122,10 @@ export default function Account({ session }) {
       </div>
 
       <div>
-        <button className="button block" onClick={() => (window.location.href = "/")}> 
-          Home
-        </button>
-      </div>
-
-      <div>
         <button className="button block" onClick={() => supabase.auth.signOut()}>
           Sign Out
         </button>
-      </div> 
+      </div>
     </div>
   )
 }
