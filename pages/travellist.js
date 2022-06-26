@@ -1,6 +1,6 @@
 import { supabase } from '../utils/supabaseClient'
 import { Auth } from '@supabase/ui'
-import TodoList from '../components/packingListComp'
+import TodoList from '../components/travelListComp'
 
 export async function getServerSideProps({ req }) {
   const { user } = await supabase.auth.api.getUserByCookie(req)
@@ -12,7 +12,8 @@ export async function getServerSideProps({ req }) {
   return { props: { user } }
 }
 
-export default function PackingList() {
+
+export default function TravelList() {
   const { user } = Auth.useUser()
 
   return (

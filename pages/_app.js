@@ -71,6 +71,9 @@ function MyApp({ Component, pageProps }) {
           <Link href="/budgetTracker">
             <a style={linkStyle}>Budget Tracker</a>
           </Link>
+          <Link href="/travellist">
+            <a style={linkStyle}>Travel CheckList</a>
+          </Link>
           <Link href="/itinerary"> 
             <a style={linkStyle}>Itinerary</a>
           </Link>
@@ -100,4 +103,3 @@ function MyApp({ Component, pageProps }) {
   }
 
 export default MyApp
-
