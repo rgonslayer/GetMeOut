@@ -3,11 +3,11 @@ import { supabase } from '../utils/supabaseClient'
 import { useRouter } from 'next/router'
 
 const Navbar = () => {
+    const router = useRouter()
     async function signOut() {
         const { error } = await supabase.auth.signOut()
         router.push('/home')
-      }
-      const router = useRouter()
+    }
     return (
         <nav>
             <div className="logo">
