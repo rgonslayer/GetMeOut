@@ -44,6 +44,7 @@ function MyApp({ Component, pageProps }) {
     body: JSON.stringify({ event, session }),
     })
     }
+    
   async function signOut() {
       await supabase.auth.signOut()
       router.push('/')
@@ -84,7 +85,6 @@ function MyApp({ Component, pageProps }) {
             )
           }
         </nav>
-
           <Component {...pageProps} />
         </Auth.UserContextProvider>
       </div>
