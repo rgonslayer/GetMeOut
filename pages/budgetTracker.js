@@ -1,13 +1,7 @@
-import { supabase } from '../utils/supabaseClient'
+import Graph from "../components/Graph";
+import Form from "../components/Form";
 
-export default function BudgetTracker({ user }) {
-  console.log({ user })
-  return (
-    <div style={{ maxWidth: '420px', margin: '96px auto' }}>
-      <h2>budget tracker here</h2>
-    </div>
-  )
-}
+import { supabase } from '../utils/supabaseClient'
 
 export async function getServerSideProps({ req }) {
   const { user } = await supabase.auth.api.getUserByCookie(req)
@@ -17,4 +11,20 @@ export async function getServerSideProps({ req }) {
   }
 
   return { props: { user } }
+}
+
+export default function BudgetTracker() {
+    return(
+        <div style={{ maxWidth: '420px', margin: '96px auto' }}>
+        <div className="budgetTracker">
+            <div className="container mx-auto max-w-6xl text-center drop-shadow">
+                <h1 className="text-4xl py-8 mb-10 bg-slate-800 text white rounded"></h1>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <Graph></Graph>
+                    <Form></Form>
+                </div>
+            </div>
+        </div>
+        </div>
+    )
 }
