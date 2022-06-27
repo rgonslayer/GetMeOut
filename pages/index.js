@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Auth from '../components/Auth'
-import Account from '../components/Account'
-import Navbar from '../components/navbar'
+import { useRouter } from 'next/router'
 
 
-
-export default function Home() {
-  /*const [session, setSession] = useState(null)
+export default function Index() {
+  const [session, setSession] = useState(null)
+  const router = useRouter()
 
   useEffect(() => {
     setSession(supabase.auth.session())
@@ -17,18 +16,16 @@ export default function Home() {
     })
   }, [])
 
+  function reroute() {
+      router.push('/home')
+  }
+  
+
   return (
 
     <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
+      {!session ? <Auth /> : reroute()}
     </div>
     
-  )
-}*/
-  return (
-    <div>
-      <Navbar />
-      <h1>Homepage</h1>
-    </div>
   )
 }
