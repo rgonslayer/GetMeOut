@@ -40,9 +40,9 @@ const obj =[
 ]
 export default function Labels() {
     return (
-        <>
+        <div>
             {obj.map((v,i) => <LabelComponent key ={i} data ={v}></LabelComponent>)}
-        </>
+        </div>
         
     )
 }

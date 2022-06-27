@@ -3,25 +3,18 @@ import { Doughnut} from 'react-chartjs-2'
 import {Chart,ArcElement} from 'chart.js'
 import Labels from "./Labels" 
 import { supabase } from '../utils/supabaseClient';
+import { useState } from 'react'
 
 
 Chart.register(ArcElement);
 
-
-//const total = async () => {await supabase.from('transactions').select('amount')};
-
-/*CREATE OR REPLACE function getTotal()
-    RETURNS Float as $$
-    BEGIN
-    RETURN QUERY 
-    select "amount",
-    sum("amount") as total,
-    from "transactions"
-    single()  
-END; $$
-LANGUAGE 'plpgsql'
-*/
-
+export const getTotal= async () => {
+    const {data} = await supabase
+    .from('transactions')
+    .select('amount') 
+    return data
+    
+};
 
 const config = {
     
@@ -38,23 +31,30 @@ const config = {
                 "#ffe652"
             ],
             hoveroffset:4,
-            borderRadius:20,
-            spacing: 10 
+            borderRadius:20
         }]
     },
     options:{
         cutout:115
+
     }      
 }
 
 export default function Graph() {
+    const [total, setTotal] = useState(0)
+    getTotal().then(x => {
+        const sum = x.map(t => t.amount).reduce((a, b) => a + b)
+        console.log(sum)
+        setTotal(sum)
+    })
+    
     return(
     <div className='flex justify-content max-w-xs mx-auto'>
         <div className='item'>
             <div className='chart relative'>
                 <Doughnut {...config}></Doughnut>
                 <h3 className='mb-4 font-bold title'>Total
-                    <span className='block text-3xl text-emerald-400'>${0}</span>
+                    <span className='block text-3xl text-emerald-400'>${total}</span>
                 </h3>
             </div>
             <div className='flex flex-col py-10 gap-4'>
