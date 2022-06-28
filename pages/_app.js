@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Auth } from '@supabase/ui'
+import { Auth } from '@supabase/ui' 
 
 
 function MyApp({ Component, pageProps }) {
