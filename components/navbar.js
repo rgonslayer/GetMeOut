@@ -48,7 +48,7 @@ const Navbar = () => {
         body: JSON.stringify({ event, session }),
         })
         }
-  
+
 
       const router = useRouter()
     return (

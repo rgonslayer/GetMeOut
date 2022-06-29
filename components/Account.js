@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Avatar from './Avatar'
+import Link from 'next/dist/client/link'
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -78,7 +79,7 @@ export default function Account({ session }) {
     />
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" value={0} disabled />
       </div>
       <div>
         <label htmlFor="username">Name</label>

@@ -7,8 +7,8 @@ import { Auth } from '@supabase/ui'
 import Navbar from '../components/navbar'
 
 
-
 function MyApp({ Component, pageProps }) {
+
 
     return (
       <div>
