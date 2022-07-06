@@ -11,7 +11,7 @@ export const getFriends = async () => {
     
 };
 
-const mockData = [
+const profiles = [
   {
     id:'f7103064-fd60-446e-8dbb-58937b46739b',
     username: "Dylen",
@@ -23,13 +23,14 @@ const mockData = [
 
 
 class friend extends React.Component {
+
   state = {
     friends: [],
     innerCircle: []
   };
 
   componentDidMount() {
-    this.setState({ friends: mockData });
+    this.setState({ friends: profiles });
   }
 
   addToIC = id => {
