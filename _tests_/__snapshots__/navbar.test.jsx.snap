@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="row flex flex-center"
+>
+  <h1
+    className="header"
+  >
+    GetMeOut!
+  </h1>
+  <nav
+    style={
+      Object {
+        "margin": 20,
+      }
+    }
+  >
+    <a
+      href="/home"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Home
+    </a>
+    <a
+      href="/profile"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Profile
+    </a>
+    <a
+      href="/packinglist"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Packing List
+    </a>
+    <a
+      href="/budgetTracker"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Budget Tracker
+    </a>
+    <a
+      href="/travellist"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Travel CheckList
+    </a>
+    <a
+      href="/itinerary"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      style={
+        Object {
+          "marginRight": 10,
+        }
+      }
+    >
+      Itinerary
+    </a>
+    <button
+      onClick={[Function]}
+    >
+      Sign In
+    </button>
+  </nav>
+</div>
+`;
